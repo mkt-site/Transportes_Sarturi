@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sarturi Transportes - Transporte com Excelência</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Font Awesome (ícones sociais) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <style>
+    /* ---------- RESET / BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      min-height: 100vh;
+      color: #1e293b;
+      padding: 0 20px 80px;
+      /* espaço para o botão flutuante */
+    }
+
+    /* ---------- HEADER PRINCIPAL (logo + título + redes) ---------- */
+    .header-principal {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 25px 20px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border-bottom: 2px solid rgba(10, 42, 68, 0.08);
+    }
+
+    .logo-area {
+      flex: 0 0 auto;
+      margin-right: 20px;
+    }
+
+    .logo-area img {
+      width: 160px;
+      display: block;
+      /* ajuste conforme necessário */
+    }
+
+    .titulo-area {
+      flex: 1 1 auto;
+      text-align: left;
+      padding-right: 15px;
+    }
+
+    .titulo-area h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0a2a44;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+
+    .titulo-area .sub {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #b91c1c;
+      letter-spacing: 2px;
+    }
+
+    .social-area {
+      flex: 0 0 auto;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .social-area a {
+      color: #0a2a44;
+      font-size: 1.8rem;
+      transition: color 0.3s, transform 0.3s;
+      opacity: 0.7;
+    }
+
+    .social-area a:hover {
+      color: #b91c1c;
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    /* ---------- SLOGAN SECUNDÁRIO (abaixo do header, alinhado à direita) ---------- */
+    .slogan-secundario {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8px 20px 20px 20px;
+      text-align: right;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0a2a44;
+      border-bottom: 1px solid rgba(185, 28, 28, 0.15);
+      letter-spacing: 0.5px;
+    }
+
+    .slogan-secundario span {
+      color: #b91c1c;
+    }
+
+    /* ---------- HERO / INSTITUCIONAL (fundo azul, duas colunas) ---------- */
+    .hero {
+      max-width: 1200px;
+      margin: 30px auto 40px;
+      padding: 0 10px;
+    }
+
+    .institucional-container {
+      display: flex;
+      flex-wrap: wrap;
+      background: linear-gradient(145deg, #0a2a44 0%, #1a4a7a 100%);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(10, 42, 68, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .institucional-imagem {
+      flex: 1 1 45%;
+      min-height: 280px;
+      background: #1e293b;
+    }
+
+    .institucional-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .institucional-texto {
+      flex: 1 1 55%;
+      padding: 40px 35px;
+      display: flex;
+      align-items: center;
+    }
+
+    .institucional-texto p {
+      font-size: 1.08rem;
+      line-height: 1.9;
+      color: #f0f4f8;
+      text-align: left;
+    }
+
+    .institucional-texto p strong {
+      color: #facc15;
+    }
+
+    /* ---------- CARDS DE SERVIÇOS (FROTA) ---------- */
+    .servicos-section {
+      max-width: 1200px;
+      margin: 20px auto 20px;
+    }
+
+    .servicos-section .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0a2a44;
+      text-align: center;
+      margin-bottom: 35px;
+      letter-spacing: 0.5px;
+    }
+
+    .servicos-section .section-title span {
+      color: #b91c1c;
+    }
+
+    .servicos {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card-servico {
+      background: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      flex: 1 1 280px;
+      max-width: 350px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      border-bottom: 5px solid #b91c1c;
+      position: relative;
+    }
+
+    .card-servico::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at top right, rgba(185, 28, 28, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 0 20px 0 0;
+    }
+
+    .card-servico:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(185, 28, 28, 0.20);
+    }
+
+    .card-servico .img-wrap {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+
+    .card-servico .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card-servico:hover .img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .card-servico .info {
+      padding: 20px 18px 25px;
+      color: #1e293b;
+    }
+
+    .card-servico .info h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #0a2a44;
+    }
+
+    .card-servico .info h3 i {
+      color: #b91c1c;
+      margin-right: 8px;
+    }
+
+    .card-servico .info p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #475569;
+    }
+
+    /* ---------- BOTÃO WHATSAPP (NORMAL) ---------- */
+    .buttons {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 18px 44px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .whatsapp {
+      background: #25d366;
+      color: #fff;
+    }
+
+    .whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    /* ---------- BOTÃO WHATSAPP FLUTUANTE (FIXO) ---------- */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50px;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .whatsapp-float i {
+      font-size: 1.8rem;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 32px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-float .texto {
+      display: inline-block;
+    }
+
+    @media (max-width: 480px) {
+      .whatsapp-float .texto {
+        display: none;
+      }
+      .whatsapp-float {
+        padding: 16px;
+        border-radius: 50%;
+      }
+      .whatsapp-float i {
+        font-size: 2rem;
+        margin: 0;
+      }
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 40px 20px 20px;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(10, 42, 68, 0.08);
+      margin-top: 30px;
+      background: #ffffff;
+    }
+
+    footer p {
+      color: #475569;
+    }
+
+    .social-footer {
+      display: none;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .social-footer a {
+      color: #0a2a44;
+      font-size: 1.8rem;
+      opacity: 0.6;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .social-footer a:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      color: #b91c1c;
+    }
+
+    /* ---------- MODAL ---------- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 70vh;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+      object-fit: contain;
+    }
+
+    .modal-legenda {
+      background: rgba(10, 42, 68, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 12px;
+      padding: 20px 30px;
+      max-width: 700px;
+      width: 90%;
+      margin-top: 25px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .modal-legenda h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 6px;
+    }
+
+    .modal-legenda h3 i {
+      color: #facc15;
+      margin-right: 10px;
+    }
+
+    .modal-legenda p {
+      font-size: 1rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    .close {
+      position: absolute;
+      right: 40px;
+      top: 30px;
+      font-size: 42px;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.2s;
+      z-index: 10;
+    }
+
+    .close:hover {
+      color: #facc15;
+    }
+
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #b91c1c;
+      color: #fff;
+      border: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 28px;
+      transition: 0.25s;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-nav:hover {
+      background: #991b1b;
+    }
+
+    .modal-prev {
+      left: 20px;
+    }
+    .modal-next {
+      right: 20px;
+    }
+
+    /* ---------- RESPONSIVO ---------- */
+    @media (max-width: 768px) {
+      .header-principal {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+
+      .logo-area {
+        margin-right: 0;
+      }
+
+      .logo-area img {
+        width: 130px;
+      }
+
+      .titulo-area {
+        text-align: center;
+        padding-right: 0;
+      }
+
+      .titulo-area h1 {
+        font-size: 1.6rem;
+      }
+
+      .titulo-area .sub {
+        font-size: 1rem;
+      }
+
+      .social-area {
+        gap: 15px;
+      }
+
+      .social-area a {
+        font-size: 1.6rem;
+      }
+
+      .slogan-secundario {
+        text-align: center;
+        font-size: 1rem;
+        padding: 6px 10px 14px;
+      }
+
+      .institucional-container {
+        flex-direction: column;
+      }
+
+      .institucional-imagem {
+        min-height: 200px;
+      }
+
+      .institucional-texto {
+        padding: 30px 25px;
+      }
+
+      .institucional-texto p {
+        font-size: 1rem;
+      }
+
+      .servicos-section .section-title {
+        font-size: 1.6rem;
+      }
+
+      .card-servico {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      .card-servico .img-wrap {
+        height: 180px;
+      }
+
+      .modal-content {
+        max-height: 55vh;
+      }
+
+      .modal-nav {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+      }
+
+      .modal-prev {
+        left: 8px;
+      }
+      .modal-next {
+        right: 8px;
+      }
+
+      .close {
+        right: 20px;
+        top: 20px;
+        font-size: 32px;
+      }
+
+      footer .social-footer {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-area img {
+        width: 110px;
+      }
+      .titulo-area h1 {
+        font-size: 1.3rem;
+      }
+      .titulo-area .sub {
+        font-size: 0.9rem;
+      }
+      .slogan-secundario {
+        font-size: 0.9rem;
+      }
+      .institucional-texto p {
+        font-size: 0.95rem;
+      }
+      .servicos-section .section-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER PRINCIPAL -->
+  <header class="header-principal">
+    <div class="logo-area">
+      <img src="logo_sarturi.jpg" alt="Sarturi Transportes" />
+    </div>
+    <div class="titulo-area">
+      <h1>Sarturi Transportes</h1>
+      <p class="sub">Transporte com Excelência</p>
+    </div>
+    <div class="social-area">
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    </div>
+  </header>
+
+  <!-- SLOGAN SECUNDÁRIO (direita) -->
+  <div class="slogan-secundario">
+    Transporte com <span>Excelência</span> e <span>Segurança</span> para toda a Região
+  </div>
+
+  <!-- HERO / INSTITUCIONAL (duas colunas) -->
+  <section class="hero">
+    <div class="institucional-container">
+      <div class="institucional-imagem">
+        <!-- Imagem ilustrativa (ônibus) – pode ser substituída por uma foto maior -->
+        <img src="onibus1.jpg" alt="Frota Sarturi Transportes" />
+      </div>
+      <div class="institucional-texto">
+        <p>
+          <strong>Desde 2017</strong>, a <strong>Sarturi Transportes</strong> atua no mercado oferecendo soluções
+          em transporte com qualidade, segurança e pontualidade. Especializada em <strong>passeios turísticos</strong>,
+          <strong>fretamentos</strong> e transporte de passageiros, nossa empresa preza pelo bem-estar e satisfação
+          dos clientes, com uma frota moderna e equipe altamente capacitada. Seja para viagens executivas, eventos
+          ou turismo, a Sarturi Transportes é a escolha certa para quem busca <strong>conforto</strong> e
+          <strong>confiabilidade</strong>. Referência em mobilidade na região, levamos você com segurança e
+          excelência aonde precisar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDS DE SERVIÇOS - FROTA -->
+  <div class="servicos-section">
+    <h2 class="section-title">Conheça nossa <span>Frota</span></h2>
+    <div class="servicos" id="cardsContainer">
+      <!-- gerado via JS -->
+    </div>
+  </div>
+
+  <!-- BOTÃO WHATSAPP (normal) -->
+  <div class="buttons">
+    <a class="btn whatsapp" href="https://wa.me/5555999235620" target="_blank">
+      <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; Sarturi Transportes - Transporte com Excelência</p>
+    <div class="social-footer">
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+
+  <!-- BOTÃO WHATSAPP FLUTUANTE (FIXO) -->
+  <a class="whatsapp-float" href="https://wa.me/5555999235620" target="_blank" aria-label="Fale conosco pelo WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="texto">Fale conosco</span>
+  </a>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <span class="close" onclick="fecharModal()">&times;</span>
+    <button class="modal-nav modal-prev" onclick="modalAnterior()">❮</button>
+    <img id="modalImg" class="modal-content" alt="Imagem do serviço" />
+    <div class="modal-legenda" id="modalLegenda">
+      <h3 id="modalTitulo"></h3>
+      <p id="modalDescricao"></p>
+    </div>
+    <button class="modal-nav modal-next" onclick="modalProximo()">❯</button>
+  </div>
+
+  <script>
+    // ---------- DADOS DOS SERVIÇOS (FROTA) ----------
+    const servicos = [{
+      imagem: 'onibus1.jpg',
+      titulo: 'Frota Moderna',
+      descricao: 'Ônibus com ar-condicionado, poltronas reclináveis e Wi-Fi a bordo para sua viagem com total conforto.'
+    }, {
+      imagem: 'onibus2.jpg',
+      titulo: 'Passeios Turísticos',
+      descricao: 'Roteiros personalizados para conhecer os melhores destinos com segurança, pontualidade e guias experientes.'
+    }, {
+      imagem: 'onibus3.jpg',
+      titulo: 'Fretamento Executivo',
+      descricao: 'Atendimento exclusivo para empresas, eventos e grupos especiais. Conforto e discrição em cada trajeto.'
+    }];
+
+    // ---------- RENDERIZAR CARDS ----------
+    const container = document.getElementById('cardsContainer');
+
+    servicos.forEach((item, idx) => {
+      const card = document.createElement('div');
+      card.className = 'card-servico';
+      card.setAttribute('data-index', idx);
+
+      card.innerHTML = `
+          <div class="img-wrap">
+            <img src="${item.imagem}" alt="${item.titulo}" />
+          </div>
+          <div class="info">
+            <h3><i class="fas fa-bus"></i> ${item.titulo}</h3>
+            <p>${item.descricao}</p>
+          </div>
+        `;
+
+      card.addEventListener('click', () => abrirModal(idx));
+      container.appendChild(card);
+    });
+
+    // ---------- MODAL ----------
+    let modalIndex = 0;
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitulo = document.getElementById('modalTitulo');
+    const modalDescricao = document.getElementById('modalDescricao');
+
+    function abrirModal(index) {
+      modalIndex = index;
+      const item = servicos[modalIndex];
+      modalImg.src = item.imagem;
+      modalTitulo.textContent = item.titulo;
+      modalDescricao.textContent = item.descricao;
+      modal.style.display = 'flex';
+    }
+
+    function fecharModal() {
+      modal.style.display = 'none';
+    }
+
+    function modalProximo() {
+      modalIndex = (modalIndex + 1) % servicos.length;
+      const item = servicos[modalIndex];
+      modalImg.src = item.imagem;
+      modalTitulo.textContent = item.titulo;
+      modalDescricao.textContent = item.descricao;
+    }
+
+    function modalAnterior() {
+      modalIndex = (modalIndex - 1 + servicos.length) % servicos.length;
+      const item = servicos[modalIndex];
+      modalImg.src = item.imagem;
+      modalTitulo.textContent = item.titulo;
+      modalDescricao.textContent = item.descricao;
+    }
+
+    // Fechar modal ao clicar fora da imagem/legenda
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) fecharModal();
+    });
+
+    // Teclas
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') fecharModal();
+      if (e.key === 'ArrowRight') modalProximo();
+      if (e.key === 'ArrowLeft') modalAnterior();
+    });
+  </script>
+
+</body>
+</html>
