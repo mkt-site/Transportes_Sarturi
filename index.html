@@ -48,7 +48,6 @@
     .logo-area img {
       width: 160px;
       display: block;
-      /* ajuste conforme necessário */
     }
 
     .titulo-area {
@@ -92,12 +91,12 @@
       opacity: 1;
     }
 
-    /* ---------- SLOGAN SECUNDÁRIO (abaixo do header, alinhado à direita) ---------- */
+    /* ---------- SLOGAN SECUNDÁRIO (centralizado) ---------- */
     .slogan-secundario {
       max-width: 1200px;
       margin: 0 auto;
       padding: 8px 20px 20px 20px;
-      text-align: right;
+      text-align: center;
       font-size: 1.2rem;
       font-weight: 600;
       color: #0a2a44;
@@ -477,10 +476,14 @@
 
       .logo-area {
         margin-right: 0;
+        width: 100%;
+        text-align: center;
       }
 
       .logo-area img {
-        width: 130px;
+        width: 80%;
+        max-width: 350px;
+        margin: 0 auto;
       }
 
       .titulo-area {
@@ -569,7 +572,8 @@
 
     @media (max-width: 480px) {
       .logo-area img {
-        width: 110px;
+        width: 85%;
+        max-width: 300px;
       }
       .titulo-area h1 {
         font-size: 1.3rem;
@@ -607,7 +611,7 @@
     </div>
   </header>
 
-  <!-- SLOGAN SECUNDÁRIO (direita) -->
+  <!-- SLOGAN SECUNDÁRIO (centralizado) -->
   <div class="slogan-secundario">
     Transporte com <span>Excelência</span> e <span>Segurança</span> para toda a Região
   </div>
@@ -616,7 +620,7 @@
   <section class="hero">
     <div class="institucional-container">
       <div class="institucional-imagem">
-        <!-- Imagem ilustrativa (ônibus) – pode ser substituída por uma foto maior -->
+        <!-- Imagem ilustrativa (ônibus) -->
         <img src="onibus1.jpg" alt="Frota Sarturi Transportes" />
       </div>
       <div class="institucional-texto">
