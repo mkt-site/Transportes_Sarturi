@@ -281,6 +281,98 @@
       box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
     }
 
+    /* ---------- SEÇÃO LOCALIZAÇÃO (mapa + botão rotas) ---------- */
+    .localizacao-section {
+      max-width: 1200px;
+      margin: 40px auto 20px;
+      padding: 0 10px;
+    }
+
+    .localizacao-container {
+      background: #f8fafc;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(10, 42, 68, 0.10);
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .localizacao-mapa {
+      flex: 2 1 60%;
+      min-height: 300px;
+      background: #e2e8f0;
+    }
+
+    .localizacao-mapa iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      border: none;
+      display: block;
+    }
+
+    .localizacao-info {
+      flex: 1 1 40%;
+      padding: 30px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+      background: #ffffff;
+    }
+
+    .localizacao-info h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0a2a44;
+      margin-bottom: 4px;
+    }
+
+    .localizacao-info h3 i {
+      color: #b91c1c;
+      margin-right: 10px;
+    }
+
+    .localizacao-info .endereco {
+      font-size: 1rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .localizacao-info .endereco i {
+      color: #b91c1c;
+      width: 24px;
+      margin-right: 6px;
+    }
+
+    .btn-rotas {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #0a2a44;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: 0.3s;
+      align-self: flex-start;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-rotas i {
+      font-size: 1.2rem;
+    }
+
+    .btn-rotas:hover {
+      background: #b91c1c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(185, 28, 28, 0.25);
+    }
+
     /* ---------- BOTÃO WHATSAPP FLUTUANTE (FIXO) ---------- */
     .whatsapp-float {
       position: fixed;
@@ -542,6 +634,29 @@
         height: 180px;
       }
 
+      /* Ajustes da localização em mobile */
+      .localizacao-container {
+        flex-direction: column;
+      }
+
+      .localizacao-mapa {
+        min-height: 250px;
+      }
+
+      .localizacao-mapa iframe {
+        min-height: 250px;
+      }
+
+      .localizacao-info {
+        padding: 25px 20px;
+        align-items: center;
+        text-align: center;
+      }
+
+      .btn-rotas {
+        align-self: center;
+      }
+
       .modal-content {
         max-height: 55vh;
       }
@@ -625,7 +740,7 @@
       </div>
       <div class="institucional-texto">
         <p>
-          <strong>Desde 2017</strong>, a <strong>Sarturi Transportes</strong> atua no mercado oferecendo soluções
+          <strong>Desde 2021</strong>, a <strong>Sarturi Transportes</strong> atua no mercado oferecendo soluções
           em transporte com qualidade, segurança e pontualidade. Especializada em <strong>passeios turísticos</strong>,
           <strong>fretamentos</strong> e transporte de passageiros, nossa empresa preza pelo bem-estar e satisfação
           dos clientes, com uma frota moderna e equipe altamente capacitada. Seja para viagens executivas, eventos
@@ -647,10 +762,35 @@
 
   <!-- BOTÃO WHATSAPP (normal) -->
   <div class="buttons">
-    <a class="btn whatsapp" href="https://wa.me/5555999235620" target="_blank">
+    <a class="btn whatsapp" href="https://wa.me/5555984052981" target="_blank">
       <i class="fab fa-whatsapp"></i> Falar no WhatsApp
     </a>
   </div>
+
+  <!-- SEÇÃO LOCALIZAÇÃO (mapa + botão rotas) -->
+  <section class="localizacao-section">
+    <div class="localizacao-container">
+      <div class="localizacao-mapa">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.648188455739!2d-53.80264568488865!3d-29.787366481979568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x950bcf4c9dd1fde9%3A0x3b3b3b3b3b3b3b3b!2sRua%20Principal%20Euclides%20da%20Cunha%2C%20901%20-%20Boca%20do%20Monte%2C%20Santa%20Maria%20-%20RS%2C%2097170-000!5e0!3m2!1spt-BR!2sbr!4v1710000000000" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="localizacao-info">
+        <h3><i class="fas fa-map-pin"></i> Nossa Localização</h3>
+        <div class="endereco">
+          <i class="fas fa-location-dot"></i> Rua Principal Euclides da Cunha, 901<br />
+          <i class="fas fa-location-dot"></i> Boca do Monte, Santa Maria - RS<br />
+          <i class="fas fa-location-dot"></i> CEP: 97.170-000
+        </div>
+        <a class="btn-rotas" href="https://www.google.com/maps/dir/?api=1&destination=Rua+Principal+Euclides+da+Cunha+901+Santa+Maria+RS" target="_blank">
+          <i class="fas fa-directions"></i> Como chegar
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -662,7 +802,7 @@
   </footer>
 
   <!-- BOTÃO WHATSAPP FLUTUANTE (FIXO) -->
-  <a class="whatsapp-float" href="https://wa.me/5555999235620" target="_blank" aria-label="Fale conosco pelo WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/5555984052981" target="_blank" aria-label="Fale conosco pelo WhatsApp">
     <i class="fab fa-whatsapp"></i>
     <span class="texto">Fale conosco</span>
   </a>
